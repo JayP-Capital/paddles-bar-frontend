@@ -1,7 +1,5 @@
 import { _classes } from "../utilities/helpers";
 import styles from "../styles/modules/Hours.module.scss";
-import Image from "next/image";
-
 const cl = _classes(styles);
 
 const svg = (

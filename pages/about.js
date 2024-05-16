@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
-import { _classes } from '../utilities/helpers';
-import Image from 'next/image';
-import Intro from '../components/Intro';
-import styles from '../styles/pages/About.module.scss';
+import { useState, useEffect } from "react";
+import { _classes } from "../utilities/helpers";
+import Intro from "../components/Intro";
+import styles from "../styles/pages/About.module.scss";
+import SecondHeroSection from "../components/SecondHeroSection";
+import HeroSection from "../components/HeroSection";
+
 const cl = _classes(styles);
 
 function AboutUs() {
@@ -10,16 +12,14 @@ function AboutUs() {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setIsLoading(true);
-    fetch('../db.json')
+    fetch("../db.json")
       .then((response) => {
         if (!response.ok) {
-          throw new Error('HTTP error ' + response.status);
+          throw new Error("HTTP error " + response.status);
         }
-
         return response.json();
       })
       .then((json) => {
-        console.log('json', json);
         setPageData(json.items[1]);
         setIsLoading(false);
       });
@@ -32,23 +32,35 @@ function AboutUs() {
   }
 
   return (
-    <div className={cl('_')}>
-      <div className={cl('hero')}>
-        <Image
-          src={pageData.fieldgroup1[0].image1}
-          alt=""
-          width={1300}
-          height={850}
-        />
-      </div>
+    <div className={cl("_")}>
+      <div className={cl("container")}>
+        <div id="hero">
+          <HeroSection
+            imageSrc={pageData?.fieldgroup1[0]?.image1}
+            imageAltText={pageData?.fieldgroup1[0]?.image1_alt_text}
+            title={pageData?.fieldgroup1[0]?.title}
+            description={pageData?.fieldgroup1[0]?.h5}
+            subDescription={pageData?.fieldgroup1[0]?.h6}
+            buttonText={pageData?.fieldgroup1[0]?.buttontext1}
+          />
+          <SecondHeroSection
+            imageSrc={pageData?.fieldgroup1[1]?.image1}
+            imageAltText={pageData?.fieldgroup1[1]?.image1_alt_text}
+            title={pageData?.fieldgroup1[1]?.title}
+            description={pageData?.fieldgroup1[1]?.h5}
+            subDescription={pageData?.fieldgroup1[1]?.h6}
+            buttonText={pageData?.fieldgroup1[1]?.buttontext1}
+          />
+        </div>
 
-      <div id="about">
-        <Intro
-          title={pageData.h2 || 'This is the intro title'}
-          meme={pageData.h3 || 'Meme Text Here'}
-          content={pageData.blurb1 || 'This is the intro content'}
-          cta={pageData.buttonlink1}
-        />
+        <div id="about">
+          <Intro
+            title={pageData.h2 || "This is the intro title"}
+            meme={pageData.h3 || "Meme Text Here"}
+            content={pageData.blurb1 || "This is the intro content"}
+            cta={pageData.buttonlink1}
+          />
+        </div>
       </div>
     </div>
   );
