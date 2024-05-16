@@ -34,6 +34,53 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### PART 1 Notes
 
+---Components Needed---
+
+-Hero Section Component:
+"PLAN YOUR EVENT" section: title, description, button.
+
+-Image Component:
+Displays various images, flexible for different sizes.
+
+-Text Section Component:
+"EAT. DRINK." section: title, description, button.
+
+-Button Component:
+Reusable for "REQUEST INFORMATION" and "DOWNLOAD MENU".
+
+-Layout/Grid Component:
+Flexible grid system for responsive layout.
+
+----Considerations----
+
+-Responsive Design:
+Mobile-first approach with media queries for larger screens.
+Vertical stacking on mobile, side-by-side/grid on larger screens.
+
+-Image Optimization:
+Use responsive images with srcset.
+Optimize for fast loading.
+
+-Text Readability:
+Ensure readable font sizes and line heights.
+Maintain high contrast for readability.
+
+-Button Usability:
+Large, tappable buttons with sufficient padding.
+Consistent spacing around buttons.
+
+-Alignment and Spacing:
+Consistent margins, paddings, and font sizes.
+Use CSS variables or a design system.
+
+----Potential Issues----
+
+-Layout Shifts:
+Prevent content shifts with placeholders or fixed dimensions.
+
+-Performance:
+Optimize images, minify CSS/JavaScript elements.
+
 ## PART 2
 
 1. For part 2, create this section on the about page. Both mobile and desktop comps have been provided. We need pixel perfect replication of the design.
