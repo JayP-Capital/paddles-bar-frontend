@@ -7,7 +7,6 @@ AppProvider.propTypes = {
 };
 
 export function AppProvider({ children, content }) {
-  console.log('content', content);
 
   return (
     <AppContext.Provider

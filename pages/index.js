@@ -47,7 +47,7 @@ function Home(props) {
 
 export async function getStaticProps() {
   try {
-    const res = await fetch('http://localhost:3001/api/items/1');
+    const res = await fetch('http://localhost:3000/api/items/1');
     if (!res.ok) {
       // Handle HTTP errors
       console.error(`Error fetching data: ${res.status} ${res.statusText}`);
